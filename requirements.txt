@@ -11,5 +11,9 @@ boto3==1.24.87
 fastapi==0.85.0
 uvicorn==0.18.3
 
-
+numpy
+pandas
+python-dotenv
+databricks-sql-connector
+matplotlib
 
