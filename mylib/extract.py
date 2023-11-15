@@ -1,3 +1,4 @@
+# %pip install -r ../requirements.txt
 import requests
 from dotenv import load_dotenv
 import os
@@ -65,8 +66,8 @@ def uploadFile(url, dbfs_path, overwrite, headers):
 
 
 def extract(
-        url="""https://github.com/fivethirtyeight/data/blob/master/comma-survey/comma-survey.csv?raw=true""",
-        file_path=FILESTORE_PATH+"/comma-survey.csv",
+        url="""https://github.com/fivethirtyeight/data/blob/master/fifa/fifa_countries_audience.csv?raw=true""",
+        file_path=FILESTORE_PATH+"/fifa_countries_audience.csv",
         directory=FILESTORE_PATH,
         overwrite=True
 ):
