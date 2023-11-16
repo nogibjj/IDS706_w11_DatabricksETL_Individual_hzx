@@ -86,8 +86,34 @@ ORDER BY
 ### Conclusion
 From the plots above, considering the relative population and audience ratio, we can see that AFC and UEFA are the most enthusiastic fans. They occupied most of the audience market. It presents a certain degree of positive correlation between GDP and TV audience ratio.
 
-## Delta Lake unique capabilities
+## Usage of Delta Lake - unique capabilities
 Delta Lake is the optimized storage layer that provides the foundation for storing data and tables in the Databricks lakehouse. Delta Lake is open source software that extends Parquet data files with a file-based transaction log for ACID transactions and scalable metadata handling. Delta Lake is fully compatible with Apache Spark APIs, and was developed for tight integration with Structured Streaming, allowing you to easily use a single copy of data for both batch and streaming operations and providing incremental processing at scale.
+
+Delta Lake Time Travel is a feature of Delta Lake that allows you to query and restore historical versions of data. This is achieved by executing time travel queries on a Delta Lake table, enabling you to query the state of the table at different points in time and revert to previous versions. Here are some key concepts and usage patterns of Delta Lake Time Travel:
+
+1. **Version Tracking:** Delta Lake uses version control to track changes to a table. Each modification to a Delta table creates a new version, including operations like inserts, updates, deletes, and more.
+
+2. **Time Travel Queries:** By using the time travel query syntax provided by Delta Lake, you can query a table at a specific timestamp or version. Time travel queries use the `AS OF` or `VERSION AS OF` clauses, for example:
+
+    ```sql
+    SELECT * FROM table_name AS OF TIMESTAMP 'timestamp'
+    ```
+
+    or
+
+    ```sql
+    SELECT * FROM table_name VERSION AS OF version_number
+    ```
+3. **Rolling Back to Historical Versions:** Through time travel queries, you can selectively roll back the state of a table to previous versions. This can be achieved by creating a new Delta table and then inserting historical version data into the new table.
+
+    ```sql
+    -- Create a new table
+    CREATE TABLE new_table_name (columns data types);
+
+    -- Insert historical version data
+    INSERT INTO new_table_name SELECT * FROM table_name VERSION AS OF version_number;
+    ```
+
 
 ## Databricks ETL pipeline
 
