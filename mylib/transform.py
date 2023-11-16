@@ -9,7 +9,8 @@ def load(dataset="dbfs:/FileStore/Week11_Databricks_ETL/fifa_countries_audience.
     spark = SparkSession.builder.appName("Read CSV").getOrCreate()
     # load csv and transform it by inferring schema 
     fifa_df = spark.read.csv(dataset, header=True, inferSchema=True)
-
+    # cleaning and preparing the data for analysis
+    fifa_df = fifa_df.dropna()
     # add unique IDs to the DataFrames
     fifa_df = fifa_df.withColumn("id", monotonically_increasing_id())
 
