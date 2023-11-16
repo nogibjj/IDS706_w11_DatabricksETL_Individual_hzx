@@ -1,4 +1,3 @@
-# %pip install -r ../requirements.txt
 import requests
 from dotenv import load_dotenv
 import os
