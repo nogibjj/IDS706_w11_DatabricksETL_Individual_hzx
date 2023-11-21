@@ -1,6 +1,8 @@
 [![CI](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml)
 # Individual Project 3 - Databricks ETL pipeline
 
+[YouTube Link](https://youtu.be/QjkiF9a2NvI)
+
 # Requirements
 Your project should include the following:
 - A well-documented Databricks notebook that performs ETL (Extract, Transform, Load) operations, checked into the repository.
